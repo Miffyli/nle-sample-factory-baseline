@@ -1,0 +1,4 @@
+sample-factory
+nle==0.7.3
+Pillow
+numba
