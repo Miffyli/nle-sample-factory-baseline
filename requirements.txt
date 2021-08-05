@@ -1,4 +1,6 @@
 sample-factory
-nle==0.7.3
+nle>=0.7.2
 Pillow
 numba
+aicrowd-api
+aicrowd-gym
