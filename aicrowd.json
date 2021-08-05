@@ -1,0 +1,9 @@
+{
+  "challenge_id": "neurips-2021-the-nethack-challenge",
+  "authors": [
+    "Anssi Kanervisto", "Karolis Ramanauskas"
+  ],
+  "description": "Baseline-ish submission using sample-factory",
+  "gpu": true
+}
+
