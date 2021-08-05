@@ -20,6 +20,9 @@ class RootNLEWrapper(gym.Wrapper):
 
 
 def make_custom_env_func(full_env_name, cfg=None, env_config=None):
+    if cfg.get("use_aicrowd_gym", False):
+        import aicrowd_gym
+        gym = aicrowd_gym
     env = RootNLEWrapper(gym.make("NetHackChallenge-v0", observation_keys=["tty_chars", "tty_colors", "blstats", "message"]))
     if full_env_name == "nle_competition_image_obs":
         env = VectorFeaturesWrapper(
