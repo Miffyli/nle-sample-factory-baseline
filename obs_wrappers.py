@@ -87,7 +87,7 @@ class VectorFeaturesWrapper(gym.Wrapper):
         }
         # Add other obs spaces other than blstats
         obs_spaces.update([
-            (k, v) for k, v in self.env.observation_space.spaces.items() if k != "blstats"
+            (k, self.env.observation_space[k]) for k in self.env.observation_space if k != "blstats"
         ])
         self.observation_space = gym.spaces.Dict(obs_spaces)
 
@@ -192,7 +192,7 @@ class RenderCharImagesWithNumpyWrapper(gym.Wrapper):
                 dtype=np.uint8
             )
         }
-        obs_spaces.update([(k, v) for k, v in self.env.observation_space.spaces.items() if k not in ["tty_chars", "tty_colors"]])
+        obs_spaces.update([(k, self.env.observation_space[k]) for k in self.env.observation_space if k not in ["tty_chars", "tty_colors"]])
         self.observation_space = gym.spaces.Dict(obs_spaces)
 
     def _initialize_char_array(self, font_size, rescale_font_size):
