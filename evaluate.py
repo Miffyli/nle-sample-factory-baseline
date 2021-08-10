@@ -13,7 +13,7 @@ from sample_factory.algorithms.appo.model_utils import get_hidden_size
 from sample_factory.algorithms.utils.action_distributions import ContinuousActionDistribution
 from sample_factory.algorithms.utils.algo_utils import ExperimentStatus
 from sample_factory.algorithms.utils.arguments import arg_parser, parse_args, load_from_checkpoint
-from sample_factory.algorithms.utils.multi_agent_wrapper import MultiAgentWrapper, is_multiagent_env
+from sample_factory.algorithms.utils.multi_agent_wrapper import MultiAgentWrapper
 from sample_factory.envs.create_env import create_env
 from sample_factory.utils.utils import log, AttrDict
 
@@ -40,9 +40,9 @@ def enjoy(cfg, max_num_frames=1e9, target_num_episodes=TARGET_NUM_EPISODES):
 
     env = make_env_func(AttrDict({'worker_index': 0, 'vector_index': 0}))
 
-    is_multiagent = is_multiagent_env(env)
-    if not is_multiagent:
-        env = MultiAgentWrapper(env)
+    # sample-factory defaults to work with multiagent environments,
+    # but we can wrap a single-agent env into one of these like this
+    env = MultiAgentWrapper(env)
 
     log.info("Num agents {}".format(env.num_agents))
 
