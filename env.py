@@ -13,6 +13,14 @@ class RootNLEWrapper(gym.Wrapper):
     """Some root-level additions to the NLE environment"""
     def __init__(self, env):
         super().__init__(env)
+        
+        manual_spaces = {
+            "tty_chars": gym.spaces.Box(0, 255, shape=(24, 80), dtype=np.uint8),
+            "tty_colors": gym.spaces.Box(0, 31, shape=(24, 80), dtype=np.int8),
+            "blstats": gym.spaces.Box(-2147483648, 2147483647, shape=(26,), dtype=np.int64),
+            "message": gym.spaces.Box(0, 255, shape=(256,), dtype=np.uint8),
+        }
+        self.observation_space = gym.spaces.Dict(manual_spaces)
 
     def seed(self, *args):
         # Nethack does not allow seeding, so monkey-patch disable it here
