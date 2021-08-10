@@ -13,7 +13,10 @@ class RootNLEWrapper(gym.Wrapper):
     """Some root-level additions to the NLE environment"""
     def __init__(self, env):
         super().__init__(env)
-        
+
+        # NOTE: aicrowd-gym spaces do not allow all the things we would like to do
+        #       (e.g. iterate over spaces), and code does not regocnize them as
+        #       normal Gym spaces, so we need to define them manually here
         manual_spaces = {
             "tty_chars": gym.spaces.Box(0, 255, shape=(24, 80), dtype=np.uint8),
             "tty_colors": gym.spaces.Box(0, 31, shape=(24, 80), dtype=np.int8),
@@ -21,6 +24,7 @@ class RootNLEWrapper(gym.Wrapper):
             "message": gym.spaces.Box(0, 255, shape=(256,), dtype=np.uint8),
         }
         self.observation_space = gym.spaces.Dict(manual_spaces)
+        self.action_space = gym.spaces.Discrete(113)
 
     def seed(self, *args):
         # Nethack does not allow seeding, so monkey-patch disable it here
