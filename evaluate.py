@@ -27,7 +27,7 @@ TARGET_NUM_EPISODES = 512
 def enjoy(cfg, max_num_frames=1e9, target_num_episodes=TARGET_NUM_EPISODES):
     """
     This is a modified version of original appo.enjoy_appo.enjoy function,
-    modified have a episode limit.
+    modified to have an episode limit.
     """
     cfg = load_from_checkpoint(cfg)
 
@@ -60,8 +60,6 @@ def enjoy(cfg, max_num_frames=1e9, target_num_episodes=TARGET_NUM_EPISODES):
     true_rewards = [deque([], maxlen=100) for _ in range(env.num_agents)]
     num_frames = 0
     num_episodes = 0
-
-    last_render_start = time.time()
 
     obs = env.reset()
     rnn_states = torch.zeros([env.num_agents, get_hidden_size(cfg)], dtype=torch.float32, device=device)
