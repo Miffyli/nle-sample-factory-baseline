@@ -1,6 +1,6 @@
 # NLE challenge baseline using sample-factory
 
-An openly shared baseline code for the [NeurIPS 2021 Nethack challenge](https://www.aicrowd.com/challenges/neurips-2021-the-nethack-challenge/), using [sample-factory](https://github.com/alex-petrenko/sample-factory) in its core. Feel free to use in your submissions as you see fit! Note that there is no submission code. This code only works on Linux.
+An openly shared baseline code for the [NeurIPS 2021 Nethack challenge](https://www.aicrowd.com/challenges/neurips-2021-the-nethack-challenge/), using [sample-factory](https://github.com/alex-petrenko/sample-factory) in its core. Feel free to use in your submissions as you see fit! This code only works on Linux.
 
 Core features:
 - Trains two billion (2e9) steps in 22h on a single RTX 2080Ti and 16 2.3Ghz cores. This reaches an average of 700-800 and a median of 400 reward.
@@ -19,11 +19,11 @@ You can try to speed up training by changing the `num_workers` and `num_envs_per
 
 ## Submitting to AICrowd
 
-This repository contains necessary files to make a submission. Simply follow the [official instructions on doing a submission](https://gitlab.aicrowd.com/nethack/neurips-2021-the-nethack-challenge/-/blob/master/docs/SUBMISSION.md), and you should be good to go! Remember to update `aicrowd.json`!
+This repository contains necessary files to make a submission, including a pretrained model. Simply follow the [official instructions on doing a submission](https://gitlab.aicrowd.com/nethack/neurips-2021-the-nethack-challenge/-/blob/master/docs/SUBMISSION.md), and you should be good to go! Remember to update the `aicrowd.json`!
 
 Checklist of things for changing your trained models for submission:
 - Update `train_dir` to only contain the experiment you want to submit (and preferably only one checkpoint file. `cfg.json` is a necessary file!)
-- Make sure the experiment name in `run.sh` matches one in `train_baseline.sh`
+- Make sure the experiment name in `run.sh` matches one in `train_baseline.sh`.
 
 ## Contents
 
