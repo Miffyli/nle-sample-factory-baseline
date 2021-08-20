@@ -27,7 +27,8 @@ Checklist of things for changing your trained models for submission:
 
 ## Contents
 
-- `main.py`: entry point.
+- `main.py`: entry point for training.
+- `evaluate.py`: entry point for (AICrowd) evaluation.
 - `env.py`: core environment wrappers and creation of environment in sample-factory
 - `obs_wrappers.py`: code for drawing RGB images of the NLE and processing `blstats` info.
 - `models.py`: torch model for encoding observations before the RNN core.
