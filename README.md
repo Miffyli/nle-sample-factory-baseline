@@ -15,6 +15,8 @@ Install requirements with `pip install -r requirements.txt`.
 
 Run code with `./train_baseline.sh`. This should start printing out text about initializing the workers, and eventually learning statistics. Training lasts for two billion steps.
 
+**Note:** by default this will continue the training with the files already contained in this repository. Change the experiment name in `train_baseline.sh` or alternatively remove `train_dir` directory to train a new model.
+
 You can try to speed up training by changing the `num_workers` and `num_envs_per_worker` parameters inside `train_baseline.sh`.
 
 ## Submitting to AICrowd
