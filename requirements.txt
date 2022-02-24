@@ -1,5 +1,5 @@
 sample-factory
-nle>=0.7.2
+nle==0.7.3
 Pillow==8.2.0
 numba
 aicrowd-api
