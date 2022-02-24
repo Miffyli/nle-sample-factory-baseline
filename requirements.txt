@@ -1,4 +1,4 @@
-sample-factory
+sample_factory==1.120.0
 nle==0.7.3
 Pillow==8.2.0
 numba
