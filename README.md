@@ -45,3 +45,16 @@ By default the sample-factory stores logs as tensorboard files, but to ease up t
 Simply define `WANDB_API_KEY` variable in the environment and install wandb (`pip install wandb`), and you should start seeing logs on the wandb page once you launch the code.
 
 ![wandb image](media/wandb.png?raw=true)
+
+## Citation
+
+Please cite the repository using the below BibTeX:
+```bibtex
+@misc{kanervisto2022nle,
+  author       = {Anssi Kanervisto and Karolis Jucys},
+  title        = {Nethack Learning Environment Sample Factory Baseline},
+  year         = {2022},
+  howpublished = {\url{https://github.com/Miffyli/nle-sample-factory-baseline}},
+  note         = {Accessed: 2025-03-28}
+}
+```
